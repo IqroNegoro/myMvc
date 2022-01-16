@@ -61,8 +61,13 @@ class Pendaftar_model {
     }
     
     public function editData($data) {
-        $this->db->query("UPDATE $this->table SET profile = :profil, nama = :nama, tgl_lahir = :tgl_lahir, alamat = :alamat, email = :email, hp = :hp, asal = :asal, jurusan = :jurusan WHERE id =" . $data["id"]);
-        $this->db->bindVal(":profil", $this->gambar());
+        if (strlen($_FILES["profile"]["nama"]) > 0) {
+            $sql = "UPDATE $this->table SET profile = :profil, nama = :nama, tgl_lahir = :tgl_lahir, alamat = :alamat, email = :email, hp = :hp, asal = :asal, jurusan = :jurusan WHERE id =" . $data["id"];
+            $this->db->bindVal(":profil", $this->gambar());
+        } else {
+            $sql = "UPDATE $this->table SET nama = :nama, tgl_lahir = :tgl_lahir, alamat = :alamat, email = :email, hp = :hp, asal = :asal, jurusan = :jurusan WHERE id =" . $data["id"];
+        }
+        $this->db->query($sql);
         $this->db->bindVal(":nama", $data["nama"]);
         $this->db->bindVal(":tgl_lahir", date("Y-m-d", strtotime($data["tgl_lahir"])));
         $this->db->bindVal(":alamat", $data["alamat"]);

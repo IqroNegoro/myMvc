@@ -1,3 +1,6 @@
+<?php if (strlen($data["detail"]["id"] > 0)) {
+    header("Location: " . BASEURL . "pendaftar");
+} ?>
 <div class="profile" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(<?= BASEURL ?>asset/img/<?= $data["detail"]["profile"] ?>);">
     <img src="<?= BASEURL ?>asset/img/<?= $data["detail"]["profile"] ?>" alt="">
 </div>
@@ -103,7 +106,7 @@
                     </td>
                 </tr>
                 <td> Profile </td>
-                <td><input type="file" name="profil"></td>
+                <td><input type="file" name="profil" value="<?= $data["detail"]["profile"] ?>"></td>
                 </tr>
                 <tr>
                     <td>
