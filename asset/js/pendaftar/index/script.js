@@ -9,3 +9,9 @@ window.addEventListener("click", e => {
         background.style.display = "none";
     }
 })
+
+const searching = document.getElementById("searchInp");
+searching.addEventListener("keypress", function(e) {
+    let value = this.value;
+    
+})
