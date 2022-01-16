@@ -43,4 +43,8 @@ class Pendaftar extends Controller {
         }
     }
 
+    public function search() {
+        $data["search"] = $this->model("Pendaftar_model")->cariData($_POST["keyword"]);
+        $this->view("pendaftar/search", $data); 
+    }
 }

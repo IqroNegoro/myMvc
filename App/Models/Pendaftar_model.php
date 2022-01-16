@@ -78,5 +78,10 @@ class Pendaftar_model {
         $this->db->execute();
         return $this->db->affected();
     }
+
+    public function cariData($data) {
+        $this->db->query("SELECT id, profile, nama, email, jurusan FROM pendaftar WHERE id LIKE '%$data%' OR nama LIKE '%$data%' OR email LIKE '%$data%' OR jurusan LIKE '%$data%'");
+        return $this->db->result();
+    }
     
 }

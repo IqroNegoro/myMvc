@@ -1,7 +1,9 @@
 <h1> Data Peserta </h1>
 <div class="aksi">
     <div class="searching">
-        <input type="text" id="searchInp" placeholder="Cari Peserta...">
+        <form action="http://localhost/myMvc/pendaftar/search.php" method="post" id="searchInp">
+            <input type="text" placeholder="Cari Peserta..." name="keyword" id="keyword">
+        </form>
         <button id="submit">
             <i class="bx bx-search"></i>
         </button>
@@ -20,10 +22,10 @@
                 <th>Profil</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>Nomor HP</th>
+                <th>Jurusan</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
             <?php foreach ($data["daftar"] as $x) : ?>
                 <tr>
                     <td>
@@ -43,7 +45,7 @@
                         <?= $x["email"] ?>
                     </td>
                     <td>
-                        <?= $x["hp"] ?>
+                        <?= $x["jurusan"] ?>
                     </td>
                 </tr>
             <?php endforeach ?>

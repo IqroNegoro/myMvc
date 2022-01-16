@@ -1,4 +1,4 @@
-<?php if (strlen($data["detail"]["id"] > 0)) {
+<?php if (strlen($data["detail"]["id"] == null)) {
     header("Location: " . BASEURL . "pendaftar");
 } ?>
 <div class="profile" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(<?= BASEURL ?>asset/img/<?= $data["detail"]["profile"] ?>);">
