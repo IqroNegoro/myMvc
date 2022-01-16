@@ -82,7 +82,7 @@
             </tr>
             <tr>
                 <td>Tanggal Lahir</td>
-                <td><input type="date" name="tgl_lahir"></td>
+                <td><input type="date" name="tgl_lahir" value="2000-00-00"></td>
             </tr>
             <tr>
                 <td>Jurusan</td>

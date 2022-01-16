@@ -22,21 +22,22 @@ class Pendaftar_model {
 
     public function gambar() {
         $targetdir = "C:/xampp/htdocs/myMvc/asset/img/";
-        $nameFile = str_replace(" ", "", $_FILES["profil"]["nama"]);
-        $target = $targetdir . str_replace(" ", "", basename($nameFile));
-        $expl = explode(".", $nameFile);
-        $ext = strtolower(end($expl));
+        $namaFile = basename($_FILES["profil"]["name"]);
+        $bombomBAKUDAN = explode(".", $namaFile);
+        $ext = strtolower(end($bombomBAKUDAN));
+        $target = $targetdir . $namaFile;
+
+        if ($ext != "jpg" && $ext != "jpeg" && $ext != "png") {
+            return "Extensions tidak cocok";
+        }
 
         if (file_exists($target)) {
-            return "dah ada kawokoawkowa";
+            return "File sudah ada";
         }
 
-        if ($ext != "jpg" && $ext != "png" && $ext != "jpeg") {
-            return "gambar bukan extensi";
-        }
-
-        move_uploaded_file($nameFile, $target);
-        return $nameFile;
+        $randomName = uniqid() . "." . "$ext";
+        move_uploaded_file($_FILES["profil"]["tmp_name"], $targetdir . $randomName);
+        return $randomName;
     }
 
     public function tambahData($data) {
