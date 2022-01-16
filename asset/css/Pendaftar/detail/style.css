@@ -1,0 +1,69 @@
+.main {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.main > div{
+    text-align: center;
+    font-size: 30px;
+}
+
+.main .data {
+    width: 100%;
+}
+
+.main .aksi {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2px 0;
+}
+
+.main .aksi button {
+    width: 125px;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    padding: 6px;
+    transition: all 0.2s linear;
+}
+
+.main .aksi #edit {
+    background-color: rgb(17, 0, 36);
+    cursor: pointer;
+}
+
+.main .aksi #edit:hover {
+    background-color: rgb(50, 0, 107);
+}
+
+.main .aksi #hapus {
+    background-color: rgb(255, 33, 33);
+    cursor: pointer;
+}
+
+.main .aksi #hapus:hover {
+    background-color: rgb(208, 0, 0);
+}
+
+.profile {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile img {
+    width: 200px;
+    border-radius: 50%;
+    margin: auto;
+}

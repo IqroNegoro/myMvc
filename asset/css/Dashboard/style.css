@@ -1,0 +1,29 @@
+.row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    height: 200px;
+    grid-gap: 12px;
+}
+
+.row .item {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .row {
+        height: 400px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+}

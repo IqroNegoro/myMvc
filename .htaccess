@@ -1,5 +1,5 @@
 Options -Multiviews
-
+ErrorDocument 404 /http://localhost/myMvc/App/Views/error/error.php
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
