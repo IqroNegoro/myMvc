@@ -35,15 +35,3 @@ if (locationNow === "http://localhost/myMvc/") {
 } else {
     links[0].classList.add("actives");
 }
-
-const background = document.getElementsByClassName("background")[0];
-const tambah = document.getElementsByClassName("tambah")[0];
-tambah.addEventListener("click", function() {
-    background.style.display = "block"
-})
-
-window.addEventListener("click", e => {
-    if (e.target == background) {
-        background.style.display = "none";
-    }
-})

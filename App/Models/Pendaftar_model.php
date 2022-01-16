@@ -44,7 +44,7 @@ class Pendaftar_model {
         $this->db->query("INSERT INTO $this->table (profile, nama, tgl_lahir, alamat, email, hp, asal, jurusan) VALUES (:profil, :nama, :tgl_lahir, :alamat, :email, :hp, :asal, :jurusan)");
         $this->db->bindVal(":profil", $this->gambar());
         $this->db->bindVal(":nama", $data["nama"]);
-        $this->db->bindVal(":tgl_lahir", date("Y-d-m", strtotime($data["tgl_lahir"])));
+        $this->db->bindVal(":tgl_lahir", date("Y-m-d", strtotime($data["tgl_lahir"])));
         $this->db->bindVal(":alamat", $data["alamat"]);
         $this->db->bindVal(":email", $data["email"]);
         $this->db->bindVal(":hp", $data["hp"]);
@@ -53,4 +53,25 @@ class Pendaftar_model {
         $this->db->execute();
         return $this->db->affected();
     }
+    
+    public function hapusData($id) {
+        $this->db->query("DELETE FROM $this->table WHERE id = $id");
+        $this->db->execute();
+        return $this->db->affected();
+    }
+    
+    public function editData($data) {
+        $this->db->query("UPDATE $this->table SET profile = :profil, nama = :nama, tgl_lahir = :tgl_lahir, alamat = :alamat, email = :email, hp = :hp, asal = :asal, jurusan = :jurusan WHERE id =" . $data["id"]);
+        $this->db->bindVal(":profil", $this->gambar());
+        $this->db->bindVal(":nama", $data["nama"]);
+        $this->db->bindVal(":tgl_lahir", date("Y-m-d", strtotime($data["tgl_lahir"])));
+        $this->db->bindVal(":alamat", $data["alamat"]);
+        $this->db->bindVal(":email", $data["email"]);
+        $this->db->bindVal(":hp", $data["hp"]);
+        $this->db->bindVal(":asal", $data["sekolah"]);
+        $this->db->bindVal(":jurusan", $data["jurusan"]);
+        $this->db->execute();
+        return $this->db->affected();
+    }
+    
 }
